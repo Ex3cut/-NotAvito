@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <input type="checkbox" id="login_callback">
+        <label class="login_button" for="login_callback" style="display:block;">Log in</label>
+
+        <form action="" class="login_popup">
+            <span>Log in</span>
+            <input type="text" placeholder="Login" class="text_style" id="login_login">
+            <input type="password" placeholder="Password"class="text_style" id="login_password">
+            <input class="login_submit_style" id="login_submit" type="button" value="Log in" style="color: rgb(119, 0, 0); border: 2px solid rgb(119, 0, 0); width: 100px; height: 40px; margin-left: 66%;">
+            <label class="login_close" for="login_callback">+</label>
+        </form>  
+
+        <input type="checkbox" id="register_callback">
+        <label class="register_button" for="register_callback" style="display: block; margin-top: 5px;">Register</label>
+
+        <form action="" class="register_popup">
+            <span>Register</span>
+            <input type="text" placeholder="Name" class="text_style" id="register_name">
+            <input type="text" placeholder="Login" class="text_style"id="register_login">
+            <input type="password" placeholder="Password" class="text_style"id="register_password">
+            <input class="register_submit_style" id="register_submit" type="button" value="Register" style="color: rgb(119, 0, 0); border: 2px solid rgb(119, 0, 0); width: 120px; height: 40px; margin-left: 60%;">
+            <label class="register_close" for="register_callback">+</label>
+        </form>  
+
+    </div>
+
+    <div class="content" style="display: none;">
+        <div id="message" style="color: rgb(119, 0, 0); margin-left: 91.5%; font-family: arial;"></div> 
+        <input class="logout_style" id="logout" type="button" value="Log out">
+             
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
