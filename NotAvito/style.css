@@ -4,6 +4,8 @@ html {
 
 body{
     background-color: black;
+    color: rgb(119, 0, 0);
+    font-family: arial;
 }
 
 * {
@@ -189,4 +191,92 @@ body{
 .logout_style:hover {
     background-color: rgb(119, 0, 0);
     color: black;
+}
+
+.cars{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 500px);
+}
+.window {
+    border: 5px solid rgb(119, 0, 0); 
+    margin-left: 50%;
+    width: 250px;
+    font-size: 24px;
+    font-family: arial;
+}
+
+.filter_apply {
+    display: block;
+    margin-left: 65%;
+    width: 70px;
+    border: 2px solid rgb(119, 0, 0);
+    padding: 5px 7px;
+    color: rgb(119, 0, 0);
+    background-color: rgb(0, 0, 0, 0);
+    text-transform: uppercase;
+    font-family: arial;
+    cursor: pointer;
+    font-size: 16px;
+}
+.filter_apply:hover {
+    background-color: rgb(119, 0, 0);
+    color: black;
+}
+
+.sort_button_price {
+    display: block;
+    width: 55px;
+    border: 2px solid rgb(119, 0, 0);
+    color: rgb(119, 0, 0);
+    background-color: rgb(0, 0, 0, 0);
+    text-transform: uppercase;
+    font-family: arial;
+    cursor: pointer;
+    font-size: 12px;
+}
+.sort_button_price:hover {
+    background-color: rgb(119, 0, 0);
+    color: black;
+}
+
+.sort_button_rating {
+    display: block;
+    width: 55px;
+    border: 2px solid rgb(119, 0, 0);
+    color: rgb(119, 0, 0);
+    background-color: rgb(0, 0, 0, 0);
+    text-transform: uppercase;
+    font-family: arial;
+    cursor: pointer;
+    font-size: 12px;
+}
+.sort_button_rating:hover {
+    background-color: rgb(119, 0, 0);
+    color: black;
+}
+
+.sort_button_discount {
+    display: block;
+    width: 75px;
+    border: 2px solid rgb(119, 0, 0);
+    color: rgb(119, 0, 0);
+    background-color: rgb(0, 0, 0, 0);
+    text-transform: uppercase;
+    font-family: arial;
+    cursor: pointer;
+    font-size: 12px;
+}
+.sort_button_discount:hover {
+    background-color: rgb(119, 0, 0);
+    color: black;
+}
+
+.main_windows {
+    display: grid;
+    grid-template-columns: repeat(3);
+}
+
+.sort {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 57px);
 }

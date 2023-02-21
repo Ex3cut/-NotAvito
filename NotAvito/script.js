@@ -10,6 +10,11 @@ let users = {
         "name": "User1",
         "login": "user",
         "password": "user1",
+    },
+    "user": {
+        "name": "1",
+        "login": "1",
+        "password": "1"
     }
 }
 
@@ -44,7 +49,7 @@ function login_clicked(){
 
     let login = login_login.value
     let password = login_password.value
-    let message = document.querySelector("#message");
+    let message = document.querySelector("#message")
     
     for (const key in users) 
     {
@@ -119,3 +124,115 @@ function register_clicked(){
 
     }
 }
+//
+
+let listCar = {
+    "firstCar": {
+        "name": "firstCar",
+        "typecar": "whithmileage",        
+        "typeengine": "petrol",
+        "price": 16000,
+        "rating": 3,
+        "discount": 60
+    },
+    "secondCar": {
+        "name": "secondCar",
+        "typecar": "newcar",        
+        "typeengine": "gas",
+        "price": 32000,
+        "rating": 5,
+        "discount": 15
+    },
+    "thirdCar": {
+        "name": "thirdCar",
+        "typecar": "newcar",        
+        "typeengine": "gas", 
+        "price": 24000,
+        "rating": 2,
+        "discount": 30
+    }
+};
+
+//FILTER
+let filter_apply = document.querySelector("#filter_apply")
+filter_apply.addEventListener("click", filter_cars)
+
+function filter_cars() {
+
+    let typecar = document.querySelector("input[name=typecar]:checked")
+
+    let params = {}
+    params.typecar = typecar.value;
+
+    let typeengine = document.querySelectorAll("input[name=typeengine]:checked")
+    params.typeengine = [];
+    typeengine.forEach(function(elem) {
+        params.typeengine.push(elem.value);
+    })
+
+    selectCar(params)
+}
+
+function selectCar(params) {
+    for (const car of listCar) {
+        if(car.typecar == params.typecar && car.typeengine == params.typeengine) {
+            console.log("Car with chosen filters exists")
+        }
+    }
+}
+//
+
+//SORT
+let cars = document.querySelector('.cars')
+//PRICE BUTTON
+let price_button = document.querySelector('.price_button')
+price_button.addEventListener("click", sortByPrice)
+//RATING BUTTON
+let rating_button = document.querySelector('.rating_button')
+rating_button.addEventListener("click", sortByRate)
+//DISCOUNT BUTTON
+let discount_button = document.querySelector('.discount_button')
+discount_button.addEventListener("click", sortByDiscount)
+
+for (const key in listCar) {
+    cars.innerHTML += `<div class="window" price="${listCar[key]["price"]}" rating="${listCar[key]["rating"]}" discount="${listCar[key]["discount"]}">NAME: ${listCar[key]["name"]}<br><div>PRICE: ${listCar[key]["price"]}</div><div>RATING: ${listCar[key]["rating"]}</div><div>DISCOUNT: ${listCar[key]["discount"]}</div></div>`
+}
+
+function sortByPrice(){
+    for(let i = 0; i < cars.children.length; i++){
+        for(let j = i; j < cars.children.length; j++){
+            if(+cars.children[i].getAttribute('price') > +cars.children[j].getAttribute('price')){
+                let replaceNode = cars.replaceChild(cars.children[j], cars.children[i])
+                insertAfter(replaceNode, cars.children[i])
+            }
+        }
+    }
+}
+
+function sortByRate(){
+    for(let i = 0; i < cars.children.length; i++){
+        for(let j = i; j < cars.children.length; j++){
+            if(+cars.children[i].getAttribute('rating') > +cars.children[j].getAttribute('rating')){
+                let replaceNode = cars.replaceChild(cars.children[j], cars.children[i])
+                insertAfter(replaceNode, cars.children[i])
+            }
+        }
+    }
+}
+
+function sortByDiscount(){
+    for(let i = 0; i < cars.children.length; i++){
+        for(let j = i; j < cars.children.length; j++){
+            if(+cars.children[i].getAttribute('discount') > +cars.children[j].getAttribute('discount')){
+                let replaceNode = cars.replaceChild(cars.children[j], cars.children[i])
+                insertAfter(replaceNode, cars.children[i])
+            }
+        }
+    }
+}
+
+
+function insertAfter(elem, refElem){
+    return refElem.parentNode.insertBefore(elem, refElem.nextSibling)
+}
+//
